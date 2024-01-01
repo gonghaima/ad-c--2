@@ -7,4 +7,16 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Remove="Data\" />
+    <None Remove="FieldValidators\" />
+    <None Remove="Models\" />
+    <None Remove="Views\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Data\" />
+    <Folder Include="FieldValidators\" />
+    <Folder Include="Models\" />
+    <Folder Include="Views\" />
+  </ItemGroup>
 </Project>
