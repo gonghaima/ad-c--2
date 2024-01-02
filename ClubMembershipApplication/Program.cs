@@ -1,10 +1,13 @@
 ﻿namespace ClubMembershipApplication;
 
+
 class Program
 {
     static void Main(string[] args)
     {
-        Console.WriteLine("Hello, World!");
+        CommonOutputText.WriteLoginHeading();
+        Console.WriteLine("Please press 'l' to login or if you are not yet registered please press 'r'");
+        ConsoleKey key = Console.ReadKey().Key;
     }
 }
 
