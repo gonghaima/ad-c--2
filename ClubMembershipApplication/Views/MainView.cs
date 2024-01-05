@@ -5,14 +5,54 @@ using ClubMembershipApplication.FieldValidators;
 
 namespace ClubMembershipApplication.Views
 {
-    public class MainView : IView
+    class MainView : IView
     {
-        public IFieldValidator FieldValidator => throw new NotImplementedException();
+        public IFieldValidator FieldValidator => null;
 
+        IView _registerView = null;
+        IView _loginView = null;
+        public MainView(IView registerView, IView loginView)
+        {
+            _registerView = registerView;
+            _loginView = loginView;
+        }
         public void RunView()
         {
-            throw new NotImplementedException();
+            CommonOutputText.WriteMainHeading();
+
+            Console.WriteLine("Please press 'l' to login or if you are not yet registered please press 'r'");
+
+            ConsoleKey key = Console.ReadKey().Key;
+
+            if (key == ConsoleKey.R)
+            {
+                RunUserRegistrationView();
+                RunLoginView();
+            }
+            else if (key == ConsoleKey.L)
+            {
+                RunLoginView();
+            }
+            else
+            {
+                Console.Clear();
+                Console.WriteLine("Goodbye");
+                Console.ReadKey();
+
+            }
+
         }
+
+        private void RunUserRegistrationView()
+        {
+            _registerView.RunView();
+        }
+
+        private void RunLoginView()
+        {
+            _loginView.RunView();
+        }
+
     }
 }
 
